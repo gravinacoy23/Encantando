@@ -40,11 +40,11 @@
                     <ul>
                         <li>Cédula: {{object.cédula}}</li>
                         <li>Celular: {{object.celular}}</li>
-                        <li>Correo electrónico: {{object.corre_electrónico}}</li>
+                        <li>Correo electrónico: {{object.correo_electrónico}}</li>
                         <li>Talla zapatos: {{object.talla_zapatos}}</li>
                         <li>rut: {{object.rut.url}}</li>
                     </ul>
-                    <a href="{% url 'updateemployee' %}">
+                    <a href="{% url 'updateemp' pk=object.pk%}">
                     <button type="button">Actualizar</button>
                     </a>
             </div>
