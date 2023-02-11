@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from decouple import config
 
 # Create your models here.
 class EmployeesInfo(models.Model):
@@ -13,7 +14,7 @@ class EmployeesInfo(models.Model):
     rut = models.FileField(blank=True, null=True, upload_to='ruts/%Y/%m/%D/')
 
     class Meta:
-        db_table = 'EmployeesInfo'
+        db_table = config('DB_TABLE')
     
     def get_absolute_url(self):
         return reverse("lista_empleados", kwargs={"pk": self.employee_number})
