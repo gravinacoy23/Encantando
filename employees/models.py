@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class EmployeesInfo(models.Model):
@@ -10,7 +11,12 @@ class EmployeesInfo(models.Model):
     talla_zapatos = models.IntegerField(blank = True)
     foto = models.ImageField(blank=True, null=True, upload_to='employee_photos/%Y/%m/%D/')
     rut = models.FileField(blank=True, null=True, upload_to='ruts/%Y/%m/%D/')
+
     class Meta:
         db_table = 'EmployeesInfo'
+    
     def __str__(self):
         return f'{self.nombre_completo}'
+    
+    def get_absolute_url(self):
+        return reverse('author-detail', kwargs={'pk': self.pk})
