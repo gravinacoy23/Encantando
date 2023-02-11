@@ -1,0 +1,10 @@
+{% load static %}
+<header>
+  <img src="{% static '/media/logo_encantando.png' %}" />
+</header>
+<nav>
+  <ul>
+    <li><a href="{% url 'createmp' %}">Crear Nuevo Empleado</a></li>
+    <li><a href="{% url 'listemp' %}">Ver empleados</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encantando|Detalle empleados</title>
+</head>
+<body>
+    {%extends "base.html"%}
+
+    {%block content%}
+    {%for item in object_list%}
+        <h1>Name: {{item.nombre_completo}}</h1>
+            <img src="{{item.foto.url}}" style="height:150px; border-radius: 50%; border: 10px solid #FEDE00;"/>
+            <ul>
+                <li>Cédula: {{item.cédula}}</li>
+                <li>Celular: {{item.celular}}</li>
+                <li>Correo electrónico: {{item.corre_electrónico}}</li>
+                <li>Talla zapatos: {{item.talla_zapatos}}</li>
+                <li>rut: {{item.rut.url}}
+                </li>
+            </ul>
+    {%endfor%}
+    {%endblock%}
+</body>
+</html>
