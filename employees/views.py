@@ -10,12 +10,17 @@ from django.views.generic import (
 )   
 
 from employees.models import EmployeesInfo
-from employees.forms import EmployeeForm
+from employees.forms import (
+    CreateForm,
+    UpdatePaymentsForm,
+    UpdateDocumentsForm,
+    UpdateContactForm,
+)
 
 # Create your views here.
 
 class EmployeeCreate(CreateView):
-    form_class = EmployeeForm
+    form_class = CreateForm
     template_name = 'employeeCreate.html'
     success_url = reverse_lazy('listemp')
 
@@ -36,15 +41,59 @@ class EmployeeDetail(DetailView):
     def get_success_url(self):
         return reverse('showemp', args=(self.kwargs['pk'],))
 
-
-class EmployeeUpdate(UpdateView):
-    form_class = EmployeeForm
+class EmployeeDetailContact(DetailView):
     model = EmployeesInfo
-    template_name = 'employeeUpdate.html'
+    template_name = 'employeeDetailContact.html'
+    
+    def get_success_url(self):
+        return reverse('showcontact', args=(self.kwargs['pk'],))
+
+class EmployeeUpdateContact(UpdateView):
+    form_class = UpdateContactForm
+    model = EmployeesInfo
+    template_name = 'employeeDetailContact_update.html'
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
     
     def get_success_url(self):
-        return reverse('updateemp', args=(self.kwargs['pk'],))
+        return reverse('showemp', args=(self.kwargs['pk'],))
+
+class EmployeeDetailPagos(DetailView):
+    model = EmployeesInfo
+    template_name = 'employeeDetailPayments.html'
+    
+    def get_success_url(self):
+        return reverse('showpaymentinfo', args=(self.kwargs['pk'],))
+
+class EmployeeUpdatePayments(UpdateView):
+    form_class = UpdatePaymentsForm
+    model = EmployeesInfo
+    template_name = 'employeeDetailPayments_update.html'
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('showpaymentinfo', args=(self.kwargs['pk'],))
+
+class EmployeeDetailDocuments(DetailView):
+    model = EmployeesInfo
+    template_name = 'employeeDetailDocuments.html'
+    
+    def get_success_url(self):
+        return reverse('', args=(self.kwargs['pk'],))
+
+class EmployeeUpdateDocuments(UpdateView):
+    form_class = UpdateDocumentsForm
+    model = EmployeesInfo
+    template_name = 'employeeDetailDocuments_update.html'
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('showpaymentinfo', args=(self.kwargs['pk'],))

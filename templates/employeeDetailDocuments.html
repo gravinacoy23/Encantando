@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encantando|Detalle empleados</title>
+    <title>Encantando|Documentos</title>
     <style>
         button {
             display: inline-block;
@@ -37,17 +37,21 @@
             <div class="card card-body"></div>
                 <h1>{{object.nombre_completo}}</h1>
                     <img src="{{object.foto.url}}" style="height:150px; border-radius: 50%; border: 10px solid #FEDE00;"/>
+                    <ul>
+                        <h2>Foto: </h2>
+                        {{object.foto}}
+                        <h2>Fotocopia Cédula: </h2>
+                        {{object.fotocopia_cédula}}
+                        <h2>Carnet EPS: </h2>
+                        {{object.carnet_EPS}}
+                        <h2>Rut: </h2>
+                        {{object.rut}}
+                    
             </div>
         </div>
-        <div class="col-md3">
-            <a href="{% url 'showcontact' pk=object.pk%}">
-                <button type="button">Contacto</button>
-            </a>
-            <a href="{% url 'showpaymentinfo' pk=object.pk%}">
-                <button type="button">Pagos</button>
-            </a>
-            <a href="{% url 'showdocuments' pk=object.pk%}">
-                <button type="button">Documentos</button>
+        <div class="col-md-3">
+            <a href="{% url 'updatedocuments' pk=object.pk%}">
+                <button type="button">Actualizar</button>
             </a>
         </div>
     </div>

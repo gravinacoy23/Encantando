@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encantando|Crear empleado</title>
+    <title>Encantando|Actualizar</title>
     <style>
         button {
             display: inline-block;
@@ -29,25 +29,24 @@
       </style>
 </head>
 <body>
-    {%extends "base.html"%}
+    {%extends 'base.html'%}
 
     {%block content%}
     <div class="row">
         <div class="col-md-9">
             <div class="card card-body">
 
-                <form method="post" action="" enctype="multipart/form-data">
+                <form method="POST" action="" enctype="multipart/form-data">
                     {%csrf_token%}
-                    <table>
-                        {{form.as_table}}
-                    </table>
-                    <button type="submit">Crear</button>
+                        <table>
+                            {{form.as_table}}
+                        </table>
+                        <button type="submit">Actualizar</button>
                 </form>
 
             </div>
         </div>
     </div>
     {%endblock%}
-    </form>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encantando|Detalle empleados</title>
+    <title>Encantando|Información Pagos</title>
     <style>
         button {
             display: inline-block;
@@ -37,18 +37,22 @@
             <div class="card card-body"></div>
                 <h1>{{object.nombre_completo}}</h1>
                     <img src="{{object.foto.url}}" style="height:150px; border-radius: 50%; border: 10px solid #FEDE00;"/>
+
+                        <h2>Metodo de pago:</h2>
+                        {{object.método_de_pago}}
+                        <h2>Número de cuenta:</h2>
+                        {{object.número_de_cuenta}}
+                        <h2>Declarante de renta:</h2>
+                        {{object.declarante_de_renta}}
+                        <h2>EPS: </h2>
+                        {{object.EPS}}
+
             </div>
         </div>
-        <div class="col-md3">
-            <a href="{% url 'showcontact' pk=object.pk%}">
-                <button type="button">Contacto</button>
-            </a>
-            <a href="{% url 'showpaymentinfo' pk=object.pk%}">
-                <button type="button">Pagos</button>
-            </a>
-            <a href="{% url 'showdocuments' pk=object.pk%}">
-                <button type="button">Documentos</button>
-            </a>
+        <div class="col-md-3">
+            <a href="{% url 'updatepaymentinfo' pk=object.pk%}">
+                <button type="button">Actualizar</button>
+            </a>   
         </div>
     </div>
     {%endblock%}
