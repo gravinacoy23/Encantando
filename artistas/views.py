@@ -9,8 +9,8 @@ from django.views.generic import (
     DeleteView
 )   
 
-from employees.models import EmployeesInfo
-from employees.forms import (
+from artistas.models import Employees
+from artistas.forms import (
     CreateForm,
     UpdatePaymentsForm,
     UpdateDocumentsForm,
@@ -29,20 +29,20 @@ class EmployeeCreate(CreateView):
         return super().form_valid(form)
 
 class EmployeeList(ListView):
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeList.html'
     success_url = reverse_lazy('listemp')
     
 
 class EmployeeDetail(DetailView):
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetail.html'
     
     def get_success_url(self):
         return reverse('showemp', args=(self.kwargs['pk'],))
 
 class EmployeeDetailContact(DetailView):
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetailContact.html'
     
     def get_success_url(self):
@@ -50,7 +50,7 @@ class EmployeeDetailContact(DetailView):
 
 class EmployeeUpdateContact(UpdateView):
     form_class = UpdateContactForm
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetailContact_update.html'
 
     def form_valid(self, form):
@@ -61,7 +61,7 @@ class EmployeeUpdateContact(UpdateView):
         return reverse('showemp', args=(self.kwargs['pk'],))
 
 class EmployeeDetailPagos(DetailView):
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetailPayments.html'
     
     def get_success_url(self):
@@ -69,7 +69,7 @@ class EmployeeDetailPagos(DetailView):
 
 class EmployeeUpdatePayments(UpdateView):
     form_class = UpdatePaymentsForm
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetailPayments_update.html'
 
     def form_valid(self, form):
@@ -80,7 +80,7 @@ class EmployeeUpdatePayments(UpdateView):
         return reverse('showpaymentinfo', args=(self.kwargs['pk'],))
 
 class EmployeeDetailDocuments(DetailView):
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetailDocuments.html'
     
     def get_success_url(self):
@@ -88,7 +88,7 @@ class EmployeeDetailDocuments(DetailView):
 
 class EmployeeUpdateDocuments(UpdateView):
     form_class = UpdateDocumentsForm
-    model = EmployeesInfo
+    model = Employees
     template_name = 'employeeDetailDocuments_update.html'
 
     def form_valid(self, form):

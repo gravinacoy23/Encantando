@@ -13,7 +13,7 @@
         <ul>
         {%for item in object_list%}
         <li>
-        Nombre: <a href="{%url 'showemp' pk=item.pk%}">{{item.nombre_completo}}</a>
+        Nombre: <a href="{%url 'showemp' pk=item.pk%}">{{item.nombre}}</a>
         </li>
         {%endfor%}
         </ul>
