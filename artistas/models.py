@@ -44,6 +44,11 @@ class Employees(models.Model):
     ('Colpensiones', 'Colpensiones'),
     )
 
+    DOCUMENTOS = (
+        ('Cédula', 'Cédula'),
+        ('Tarjeta de Identidad', 'Tarjeta de identidad')
+    )
+
     employee_number = models.AutoField(primary_key=True)
     nombre= models.CharField(max_length=50)
     edad = models.IntegerField(default=18)

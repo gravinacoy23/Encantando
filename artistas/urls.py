@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from artistas.views import (
     EmployeeCreate,
     EmployeeList,
@@ -10,7 +10,9 @@ from artistas.views import (
     EmployeeUpdatePayments,
     EmployeeDetailDocuments,
     EmployeeUpdateDocuments,
+    EmplyeeDelete,
 )
+from login import views
 
 
 urlpatterns = [
@@ -23,4 +25,6 @@ urlpatterns = [
     path('detalle_empleado/pagos/actualizar/<int:pk>', EmployeeUpdatePayments.as_view(), name = 'updatepaymentinfo'),
     path('detalle_empleado/documentos/<int:pk>', EmployeeDetailDocuments.as_view(), name = 'showdocuments'),
     path('detalle_empleado/documentos/actualizar/<int:pk>', EmployeeUpdateDocuments.as_view(), name = 'updatedocuments'),
+    path('detalle_empleado/eliminar/<int:pk>', EmplyeeDelete.as_view(), name = 'deleteemp'),
+    path('salir', views.logoutUser, name = 'logout'),
 ]  

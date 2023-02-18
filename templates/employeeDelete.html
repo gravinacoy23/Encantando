@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encantando|Eliminar</title>
+    <style>
+        button {
+            display: inline-block;
+            background-color: #7b38d8;
+            padding: 20px;
+            width: 200px;
+            color: #ffffff;
+            text-align: center;
+            border: 4px double #cccccc;
+            border-radius: 10px;
+            font-size: 28px;
+            cursor: pointer;
+            margin: 5px;
+            -webkit-transition: all 0.5s; /* add this line, chrome, safari, etc */
+            -moz-transition: all 0.5s; /* add this line, firefox */
+            -o-transition: all 0.5s; /* add this line, opera */
+            transition: all 0.5s; /* add this line */
+        }
+        button:hover {
+            background-color: rgb(0, 255, 213);
+        }
+      </style>
+</head>
+<body>
+    {%extends 'base.html'%}
+
+    {%block content%}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card card-body">
+
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {%csrf_token%}
+                        <p>Seguro quieres eliminar a {{object.nombre}}?</p>
+                        <button type="submit">Eliminar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+</html>

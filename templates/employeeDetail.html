@@ -49,6 +49,9 @@
             <a href="{% url 'showdocuments' pk=object.pk%}">
                 <button type="button">Documentos</button>
             </a>
+            <a href="{% url 'deleteemp' pk=object.pk%}">
+                <button type="button">Eliminar</button>
+            </a>
         </div>
     </div>
     {%endblock%}
